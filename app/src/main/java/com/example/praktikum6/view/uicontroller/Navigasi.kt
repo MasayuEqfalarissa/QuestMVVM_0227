@@ -15,6 +15,8 @@ import com.example.praktikum6.model.DataJK.JenisK
 import com.example.praktikum6.view.FormSiswa
 import com.example.praktikum6.view.TampilSiswa
 import com.example.praktikum6.viewmodel.SiswaViewModel
+import androidx.compose.runtime.collectAsState
+
 
 enum class Navigasi {
     Formulir,
@@ -27,7 +29,7 @@ fun SiswaApp(
     //edit 1 : parameter viewModel
     modifier: Modifier,
     viewModel: SiswaViewModel = viewModel(),
-    navController: NavHostController = rememberNavController(),
+    navController: NavHostController = rememberNavController()
 
 ){
     Scaffold { isiRuang->

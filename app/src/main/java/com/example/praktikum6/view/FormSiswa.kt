@@ -31,6 +31,8 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import com.example.praktikum6.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -97,31 +99,31 @@ fun FormSiswa(
                     }
                 }
             }
-        }
-        HorizontalDivider(
-            modifier = Modifier
-                .padding(5.dp)
-                .width(250.dp),
-            thickness = dimensionResource(R.dimen.thickness_divider),
-            color = Color.Blue
-        )
-        OutlinedTextField(
-            value = txtAlamat,
-            singleLine = true,
-            shape = MaterialTheme.shapes.medium,
-            modifier = Modifier.width(250.dp),
-            label = { Text(text = "Alamat Lengkap") },
-            onValueChange = {
-                txtAlamat = it
+            HorizontalDivider(
+                modifier = Modifier
+                    .padding(5.dp)
+                    .width(250.dp),
+                thickness = dimensionResource(R.dimen.thickness_divider),
+                color = Color.Blue
+            )
+            OutlinedTextField(
+                value = txtAlamat,
+                singleLine = true,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.width(250.dp),
+                label = { Text(text = "Alamat Lengkap") },
+                onValueChange = {
+                    txtAlamat = it
+                }
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+            Button (
+                modifier = Modifier.fillMaxWidth(1f),
+                enabled = txtAlamat.isNotEmpty(),
+                onClick = { onSubmitButtonClicked(listData) }
+            ) {
+                Text(stringResource(R.string.submit))
             }
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        Button (
-            modifier = Modifier.fillMaxWidth(1f),
-            enabled = txtAlamat.isNotEmpty(),
-            onClick = { onSubmitButtonClicked(listData) }
-        ) {
-            Text(stringResource(R.string.submit))
         }
     }
 }
